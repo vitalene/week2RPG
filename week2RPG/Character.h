@@ -23,7 +23,11 @@ typedef enum whichAnimal {
     animalLast = animalDuck,
     animalNull = INT_MIN
 } whichAnimal;
-
-
+typedef enum duckMove {
+    duckStrike = 1,
+    duckBite = 2,
+    duckSplash = 3
+    
+} duckMove;
 
 @end

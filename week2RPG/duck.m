@@ -36,4 +36,9 @@
     return _water;
 }
 
+-(NSInteger)setQuack:(NSInteger)quack {
+    _quack = MAX(quack,0);
+    return _quack;
+}
+
 @end

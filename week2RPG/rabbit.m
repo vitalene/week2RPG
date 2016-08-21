@@ -22,7 +22,7 @@
     self = [super initWithName:name];
     if (self) {
         _grass = grass;
-        _hop = hop;
+        _hop = MAX(hop,0);
     }
     return self;
 }
@@ -33,5 +33,10 @@
 
 -(BOOL)grass {
     return _grass;
+}
+
+-(NSInteger)setHop:(NSInteger)hop {
+    _hop = MAX(hop,0);
+    return _hop;
 }
 @end
