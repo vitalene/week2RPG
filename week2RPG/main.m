@@ -35,16 +35,19 @@ int main(int argc, const char * argv[]) {
         
         
         if (animalChoice == 20) {
-            //   NSLog(@"Please give your duck a name:");
-            //   nameSuccess = scanf("%s", &duckName[40]);
-            //   printf("You chose: %s\n", &duckName[40]);
             
-            //   NSLog(@"That is %@ in NSString type\n", duckNameStr);
             duck *mrQuack = [[duck alloc] initWithName:@"Mr. Quack"
                                             quacklevel:100
                                                inWater:false];
             rabbit *evilCottonTail = [[rabbit alloc] initWithName:@"P. CottonTail" hopMeter:100 inGrass:false];
             //////////////////////////////////////////////////
+            // not so sure on how to get this to scanf ... :/
+       //     NSLog(@"Please give your duck a name:");
+        //    char duckName[20] = {'\0'};
+            
+          //  scanf("%s", &duckName[20]);
+    //       mrQuack.name = [mrQuack initWithName:@(duckName)];
+            
             NSLog(@"Hi, my name is %@", mrQuack);
             NSLog(@"The Quack Level is: %@", @(mrQuack.quack));
             int fightHere = arc4random_uniform(2) +1;
@@ -128,6 +131,7 @@ int main(int argc, const char * argv[]) {
                                                   hopMeter:100
                                                    inGrass:false];
             NSLog(@"Hello, my name is %@", mrFluff);
+            NSLog(@"Sorry, Mr. Fluff's adventure is coming.");
             
         }
     }

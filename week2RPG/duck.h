@@ -25,4 +25,6 @@
 
 -(BOOL)setWater:(BOOL)water;
 
+-(NSString *)setName:(NSString*)name;
+
 @end

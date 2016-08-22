@@ -36,6 +36,11 @@
     return _water;
 }
 
+-(NSString *)setName:(NSString *)name {
+    _name = name; // not sure if this is the proper way to set a name
+    return _name;
+}
+
 -(NSInteger)setQuack:(NSInteger)quack {
     _quack = MAX(quack,0);
     return _quack;
