@@ -23,9 +23,9 @@ int nameSuccess = -1;
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        
+        NSLog(@"🐇🐇🐇🐇🐇🐇🐇🐇🐇🐇🐇🐇🐇");
         NSLog(@"DUCKS VERSUS RABBITS!\n");
-        
+        NSLog(@"🐇🐇🐇🐇🐇🐇🐇🐇🐇🐇🐇🐇🐇");
         NSLog(@"Please Choose One:  \n");
         while (getAnimalSuccess != 1) {
             NSLog(@"%d: rabbit\n%d: duck: ", animalRabbit, animalDuck);
@@ -43,57 +43,83 @@ int main(int argc, const char * argv[]) {
             duck *mrQuack = [[duck alloc] initWithName:@"Mr. Quack"
                                             quacklevel:100
                                                inWater:false];
+            rabbit *evilCottonTail = [[rabbit alloc] initWithName:@"P. CottonTail" hopMeter:100 inGrass:false];
+            //////////////////////////////////////////////////
             NSLog(@"Hi, my name is %@", mrQuack);
-            int multiplier = arc4random_uniform(3) + 1;
-            NSLog(@"The random number is: %d", multiplier);
             NSLog(@"The Quack Level is: %@", @(mrQuack.quack));
-            NSNumber *hitScore = @(multiplier * mrQuack.quack);
-            NSLog(@"\nThe hit score is %@\n", hitScore);
             int fightHere = arc4random_uniform(2) +1;
             
             switch (fightHere) {
                 case 1:
+                    [evilCottonTail setGrass:true];
+                    [mrQuack setWater:false];
+                    NSLog(@"🌾🌾🌾🌾🌾🌾🌾🌾🌾🌾🌾🌾🌾");
                     NSLog(@"You are in the grass.");
+                    NSLog(@"🌾🌾🌾🌾🌾🌾🌾🌾🌾🌾🌾🌾🌾");
                     NSLog(@"You see something un-ducking believable - a rabbit stealing your eggs for an easter basket.  Muscle memory from cell phone games past dance in your head as you head to confront this poor soon-to-be hasenpfeffer\n");
                     break;
                 case 2:
-                    
+                    [evilCottonTail setGrass:false];
+                    [mrQuack setWater:true];
+                    NSLog(@"💧💧💧💧💧💧💧💧💧💧💧💧");
                     NSLog(@"You are in the water");
-                    NSLog(@"You see a rabbit swimming straight for you.  His beady little eyes bent on revenge for the previous days events.");
+                    NSLog(@"💧💧💧💧💧💧💧💧💧💧💧💧");
+                    NSLog(@"🏊You see a rabbit swimming straight for you.  His beady little eyes are fixed in hate.  Get ready to fight!🏊");
+                    [mrQuack setQuack:150];
+                    NSLog(@"You have 50%% more quack in the water.  Your quack level is %@", @(mrQuack.quack));
                     break;
                     
                 default:
                     break;
             }
-
-            rabbit *evilCottonTail = [[rabbit alloc] initWithName:@"P. CottonTail" hopMeter:100 inGrass:false];
             
-            NSLog(@"Choose a move: ");
             
-            int getDuckMove = -1;
-            int duckMove = 0;
-            while (getDuckMove !=1) {
-                NSLog(@"%d: Duck Strike\n%d: Duck Bite\n%d: Duck Splash\n", duckStrike, duckBite, duckSplash);
-                getDuckMove = scanf("%d", &duckMove);
+            while (mrQuack.quack > 0) {
                 
-            }
-            switch (duckMove) {
-                case duckStrike:
-                    NSLog(@"Duck Strike!");
-                    break;
-                case duckBite:
-                    NSLog(@"Duck Bite!");
-                    break;
-                case duckSplash:
-                    NSLog(@"Duck Splash!");
-                    break;
-                default:
-                    NSLog(@"Huh?  Something weird happened");
-                    break;
+                NSLog(@"Choose a move: ");
+                
+                int getDuckMove = -1;
+                int duckMove = 0;
+                while (getDuckMove !=1) {
+                    NSLog(@"%d: Duck Strike\n%d: Duck Bite\n%d: Duck Splash\n", duckStrike, duckBite, duckSplash);
+                    getDuckMove = scanf("%d", &duckMove);
+                    
+                }
+                switch (duckMove) {
+                    case duckStrike:
+                        NSLog(@"Duck Strike!");
+                        evilCottonTail.hop = [evilCottonTail setHop: evilCottonTail.hop] - arc4random_uniform(40);
+                        mrQuack.quack = [mrQuack setQuack:mrQuack.quack] - arc4random_uniform(40);
+                        NSLog(@"The Rabbit's Hop level is: %@", @(evilCottonTail.hop));
+                        NSLog(@"Your Quack Level is: %@", @(mrQuack.quack));
+                        break;
+                    case duckBite:
+                        NSLog(@"Duck Bite!");
+                        evilCottonTail.hop = [evilCottonTail setHop: evilCottonTail.hop] - arc4random_uniform(20);
+                        mrQuack.quack = [mrQuack setQuack:mrQuack.quack] - arc4random_uniform(20);
+                        NSLog(@"The Rabbit's Hop level is: %@", @(evilCottonTail.hop));
+                        NSLog(@"Your Quack Level is: %@", @(mrQuack.quack));
+                        break;
+                    case duckSplash:
+                        NSLog(@"Duck Splash!");
+                        evilCottonTail.hop = [evilCottonTail setHop: evilCottonTail.hop] - arc4random_uniform(10);
+                        mrQuack.quack = [mrQuack setQuack:mrQuack.quack] - arc4random_uniform(10);
+                        NSLog(@"The Rabbit's Hop level is: %@", @(evilCottonTail.hop));
+                        NSLog(@"Your Quack Level is: %@", @(mrQuack.quack));
+                        
+                        break;
+                    default:
+                        NSLog(@"Huh?  Something weird happened");
+                        break;
+                        
+                }
+                
+                if (evilCottonTail.hop == 0) {
+                    NSLog(@"The duck won!!!");
+                    return 0;
+                }
             }
             
-            evilCottonTail.hop = [evilCottonTail setHop: 100] - arc4random_uniform(40);
-            NSLog(@"Hop level is: %@", @(evilCottonTail.hop));
             
             
         } else {

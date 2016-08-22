@@ -23,5 +23,6 @@
 
 -(NSInteger)setQuack:(NSInteger)quack; 
 
+-(BOOL)setWater:(BOOL)water;
 
 @end

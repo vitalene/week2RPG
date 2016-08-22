@@ -35,6 +35,15 @@
     return _grass;
 }
 
+-(BOOL)setGrass:(BOOL)grass {
+    if (grass == true) {
+        return true;
+    } if (grass == false) {
+        return false;
+    } else {
+        return 0;
+    }
+}
 -(NSInteger)setHop:(NSInteger)hop {
     _hop = MAX(hop,0);
     return _hop;

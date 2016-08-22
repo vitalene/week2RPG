@@ -23,5 +23,6 @@
 -(BOOL)grass;
 
 -(NSInteger)setHop:(NSInteger)hop;
+-(BOOL)setGrass:(BOOL)grass;
 
 @end

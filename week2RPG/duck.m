@@ -40,5 +40,14 @@
     _quack = MAX(quack,0);
     return _quack;
 }
+-(BOOL)setWater:(BOOL)water {
+    if (water == true) {
+        return true;
+    } if (water == false) {
+        return false;
+    } else {
+        return 0;
+    }
+}
 
 @end
